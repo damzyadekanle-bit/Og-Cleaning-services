@@ -27,12 +27,12 @@
 <main id="top">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-content">
-      <p class="eyebrow">San Diego County Cleaning Experts</p>
+      <p class="eyebrow">San Diego Professional Cleaning Experts</p>
       <h1 id="hero-title">Premium Residential & Commercial Cleaning Services</h1>
       <p>Reliable, affordable, and detail-oriented cleaning services throughout San Diego.</p>
       <div class="hero-buttons">
         <a href="#quote" class="btn gold">Get Free Quote</a>
-        <a href="tel:6194586091" class="btn outline">Call (619) 458-6091</a>
+        <a href="tel:6196793390" class="btn outline">Call (619) 679-3390</a>
       </div>
     </div>
   </section>
@@ -64,13 +64,38 @@
   <section id="quote" class="section dark">
     <h2>Request a Free Quote</h2>
     <p class="section-intro">Tell us what you need cleaned and we will follow up with availability and pricing.</p>
-    <form class="quote-form" action="mailto:chukocleaning@gmail.com" method="post" enctype="text/plain">
+    <form class="quote-form" action="mailto:chukocleaning@gmail.com" method="post" enctype="multipart/form-data">
       <label for="name">Full Name</label>
       <input id="name" name="name" type="text" placeholder="Full Name" autocomplete="name" required>
+      <label for="company">Company Name <span>(optional)</span></label>
+      <input id="company" name="company" type="text" placeholder="Company Name" autocomplete="organization">
       <label for="phone">Phone Number</label>
       <input id="phone" name="phone" type="tel" placeholder="Phone Number" autocomplete="tel" required>
       <label for="email">Email Address</label>
       <input id="email" name="email" type="email" placeholder="Email Address" autocomplete="email" required>
+      <fieldset class="address-group">
+        <legend>Service Address</legend>
+        <label for="street">Street Address</label>
+        <input id="street" name="street" type="text" placeholder="Street address" autocomplete="address-line1" required>
+        <label for="unit">Unit, Apartment, Suite, etc. <span>(optional)</span></label>
+        <input id="unit" name="unit" type="text" placeholder="Unit, apartment, suite, etc." autocomplete="address-line2">
+        <div class="form-row">
+          <div>
+            <label for="city">City</label>
+            <input id="city" name="city" type="text" placeholder="City" autocomplete="address-level2" required>
+          </div>
+          <div>
+            <label for="state">State</label>
+            <select id="state" name="state" autocomplete="address-level1" required>
+              <option value="CA">California</option>
+            </select>
+          </div>
+          <div>
+            <label for="zip">ZIP Code</label>
+            <input id="zip" name="zip" type="text" placeholder="ZIP Code" inputmode="numeric" autocomplete="postal-code" required>
+          </div>
+        </div>
+      </fieldset>
       <label for="service">Service Needed</label>
       <select id="service" name="service" required>
         <option value="Residential Cleaning">Residential Cleaning</option>
@@ -82,6 +107,9 @@
       </select>
       <label for="message">Cleaning Details</label>
       <textarea id="message" name="message" placeholder="Tell us about your cleaning needs" rows="5"></textarea>
+      <label for="photos">Upload Photos <span>(optional)</span></label>
+      <input id="photos" name="photos" type="file" accept="image/*" multiple>
+      <p class="form-note">Attach photos of the space if they help us estimate the cleaning scope.</p>
       <button type="submit" class="btn gold">Submit Request</button>
     </form>
   </section>
@@ -89,12 +117,12 @@
 
 <footer class="footer">
   <h3>Chuko Cleaning Services</h3>
-  <p><a href="tel:6194586091">Phone: (619) 458-6091</a></p>
+  <p><a href="tel:6196793390">Phone: (619) 679-3390</a></p>
   <p><a href="mailto:chukocleaning@gmail.com">Email: chukocleaning@gmail.com</a></p>
 </footer>
 
-<a class="floating-call" href="tel:6194586091" aria-label="Call Chuko Cleaning Services">Call</a>
-<a class="floating-sms" href="sms:6194586091" aria-label="Text Chuko Cleaning Services">SMS</a>
+<a class="floating-call" href="tel:6196793390" aria-label="Call Chuko Cleaning Services">Call</a>
+<a class="floating-sms" href="sms:6196793390" aria-label="Text Chuko Cleaning Services">SMS</a>
 
 <script src="script.js"></script>
 </body>

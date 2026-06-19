@@ -34,7 +34,12 @@ a{color:inherit}
 .testimonial-box{max-width:700px;margin:auto;font-size:1.2rem;background:var(--gray);border-radius:16px;padding:30px}
 .quote-form{max-width:700px;margin:auto;display:flex;flex-direction:column;gap:12px;text-align:left}
 .quote-form label{font-weight:700}
-.quote-form input,.quote-form textarea,.quote-form select{padding:14px;border:none;border-radius:8px;font:inherit}
+.quote-form label span{font-weight:400;color:#e5e7eb}
+.quote-form input,.quote-form textarea,.quote-form select{padding:14px;border:none;border-radius:8px;font:inherit;width:100%}
+.address-group{border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.address-group legend{font-weight:700;padding:0 8px}
+.form-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+.form-note{color:#e5e7eb;font-size:.95rem;margin-top:-6px}
 .quote-form input:focus,.quote-form textarea:focus,.quote-form select:focus{outline:3px solid rgba(212,175,55,.55)}
 .footer{background:#000;color:#fff;text-align:center;padding:40px 20px}
 .footer a{text-decoration:none}
@@ -43,6 +48,7 @@ a{color:inherit}
 .floating-call{bottom:90px;background:#1f2937}
 .floating-sms{bottom:30px;background:var(--gold);color:#000}
 @media(max-width:768px){
+.form-row{grid-template-columns:1fr}
 .header{position:static}
 .nav{align-items:flex-start;gap:14px;flex-direction:column}
 .nav-links{display:flex;flex-wrap:wrap;gap:12px}
