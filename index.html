@@ -68,9 +68,20 @@
   <section id="quote" class="section dark">
     <h2>Request a Free Quote</h2>
     <p class="section-intro">Tell us what you need cleaned and we will follow up with availability and pricing.</p>
-    <form class="quote-form" action="https://formspree.io/f/mrenalyw" method="POST" novalidate>
+    <form id="quote-form" class="quote-form" action="https://formspree.io/f/mrenalyw" method="POST">
       <div id="form-status" class="form-status" aria-live="polite" role="status"></div>
       <p class="required-note"><span aria-hidden="true">*</span> Required fields</p>
+      <label for="service">Service Needed <span aria-hidden="true">*</span></label>
+      <select id="service" name="service" required>
+        <option value="">Select a cleaning service</option>
+        <option value="Residential Cleaning">Residential Cleaning</option>
+        <option value="Commercial Cleaning">Commercial Cleaning</option>
+        <option value="Deep Cleaning">Deep Cleaning</option>
+        <option value="Move-In / Move-Out Cleaning">Move-In / Move-Out Cleaning</option>
+        <option value="Airbnb Cleaning">Airbnb Cleaning</option>
+        <option value="Post-Construction Cleaning">Post-Construction Cleaning</option>
+      </select>
+      <div id="service-questions" class="service-questions" aria-live="polite"></div>
       <label for="name">Full Name <span aria-hidden="true">*</span></label>
       <input id="name" name="name" type="text" placeholder="Full Name" autocomplete="name" required>
       <label for="company">Company Name <span>(optional)</span></label>
@@ -102,20 +113,10 @@
           </div>
         </div>
       </fieldset>
-      <label for="service">Service Needed <span aria-hidden="true">*</span></label>
-      <select id="service" name="service" required>
-        <option value="Residential Cleaning">Residential Cleaning</option>
-        <option value="Commercial Cleaning">Commercial Cleaning</option>
-        <option value="Deep Cleaning">Deep Cleaning</option>
-        <option value="Move-In / Move-Out Cleaning">Move-In / Move-Out Cleaning</option>
-        <option value="Airbnb Cleaning">Airbnb Cleaning</option>
-        <option value="Post-Construction Cleaning">Post-Construction Cleaning</option>
-      </select>
       <label for="message">Cleaning Details</label>
       <textarea id="message" name="message" placeholder="Tell us about your cleaning needs" rows="5"></textarea>
       <p class="form-note">You can share photos of the space after we contact you about your quote request.</p>
-      <label class="honeypot" for="quote-website">Website</label>
-      <input class="honeypot" id="quote-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+      <input class="honeypot" name="_gotcha" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="hidden" name="_subject" value="New Chuko Cleaning Services quote request">
       <button type="submit" class="btn gold">Submit Request</button>
     </form>

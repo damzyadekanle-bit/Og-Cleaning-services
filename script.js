@@ -14,7 +14,7 @@ if (testimonialText) {
   }, 4000);
 }
 
-const quoteForm = document.querySelector('.quote-form');
+const quoteForm = document.getElementById('quote-form');
 const formStatus = document.getElementById('form-status');
 
 const showFormStatus = (message, type) => {
