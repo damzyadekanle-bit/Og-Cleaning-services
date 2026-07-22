@@ -35,20 +35,29 @@ a{color:inherit}
 .section{padding:100px 20px;max-width:1200px;margin:auto;text-align:center}
 .section h2{font-family:"Playfair Display",serif;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:20px;color:var(--navy)}
 .section-intro{max-width:700px;margin:0 auto 30px;color:#e5e7eb}
+#quote .section-intro{color:#dbeafe}
 .dark{background:linear-gradient(135deg,var(--navy),var(--navy-soft));color:#fff;max-width:none}
 .dark h2{color:#fff}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin:30px auto 0;max-width:1200px}
 .card{background:#fff;color:#000;padding:30px;border-radius:16px;font-weight:600;box-shadow:0 12px 32px rgba(0,0,0,.16);border-top:4px solid var(--brand-blue)}
 .testimonial-box{max-width:700px;margin:auto;font-size:1.2rem;background:var(--gray);border-radius:16px;padding:30px;border-left:5px solid var(--brand-blue)}
-.quote-form{max-width:700px;margin:auto;display:flex;flex-direction:column;gap:12px;text-align:left}
-.quote-form label{font-weight:700}
-.quote-form label span{font-weight:400;color:#e5e7eb}
-.quote-form input,.quote-form textarea,.quote-form select{padding:14px;border:none;border-radius:8px;font:inherit;width:100%}
-.address-group{border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px}
-.address-group legend{font-weight:700;padding:0 8px}
+.quote-form{max-width:760px;margin:auto;display:flex;flex-direction:column;gap:14px;text-align:left;background:#fff;color:var(--text);padding:clamp(22px,4vw,36px);border-radius:22px;box-shadow:0 18px 50px rgba(0,0,0,.22);border-top:5px solid var(--brand-blue)}
+.quote-form label{font-weight:700;color:var(--navy)}
+.quote-form label span{font-weight:400;color:#64748b}
+.required-note{color:#475569;font-size:.95rem;margin-top:-4px}
+.required-note span,.quote-form label span[aria-hidden="true"]{color:#b42318;font-weight:800}
+.quote-form input,.quote-form textarea,.quote-form select{padding:14px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;width:100%;background:#fff;color:var(--text);transition:border-color .2s ease,box-shadow .2s ease}
+.quote-form input::placeholder,.quote-form textarea::placeholder{color:#94a3b8}
+.address-group{border:1px solid #dbe3ef;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;background:#f8fafc}
+.address-group legend{font-weight:700;padding:0 8px;color:var(--navy)}
 .form-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
-.form-note{color:#e5e7eb;font-size:.95rem;margin-top:-6px}
-.quote-form input:focus,.quote-form textarea:focus,.quote-form select:focus{outline:3px solid rgba(29,139,224,.55)}
+.form-note{color:#475569;font-size:.95rem;margin-top:-4px;background:#eff6ff;border-left:4px solid var(--brand-blue);padding:12px;border-radius:10px}
+.form-status{display:none;border-radius:14px;padding:16px;font-weight:700;line-height:1.5}
+.form-status.success{display:block;background:#ecfdf3;color:#05603a;border:1px solid #86efac}
+.form-status.error{display:block;background:#fff1f2;color:#9f1239;border:1px solid #fda4af}
+.honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.quote-form input:focus,.quote-form textarea:focus,.quote-form select:focus{outline:3px solid rgba(29,139,224,.35);border-color:var(--brand-blue);box-shadow:0 0 0 1px var(--brand-blue)}
+.quote-form button:disabled{cursor:not-allowed;opacity:.75;transform:none;box-shadow:none}
 .footer{background:#020617;color:#fff;text-align:center;padding:40px 20px;border-top:4px solid var(--brand-blue)}
 .footer a{text-decoration:none}
 .footer a:hover,.footer a:focus-visible{color:var(--brand-blue-light)}
