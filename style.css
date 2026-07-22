@@ -91,3 +91,23 @@ html{scroll-padding-top:0}
 .nav-links{font-size:.95rem}
 .btn{width:100%;max-width:280px}
 }
+.form-progress{display:grid;gap:8px;background:#f8fafc;border:1px solid #dbe3ef;border-radius:14px;padding:14px}
+.progress-meta{display:flex;justify-content:space-between;gap:12px;color:var(--navy);font-weight:800}
+.progress-track{height:10px;background:#dbeafe;border-radius:999px;overflow:hidden}
+.progress-track span{display:block;width:0;height:100%;background:linear-gradient(135deg,var(--brand-blue),var(--brand-blue-light));border-radius:inherit;transition:width .25s ease}
+.service-picker,.form-section{border:1px solid #dbe3ef;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;background:#f8fafc}
+.service-picker legend,.form-section legend{font-weight:800;color:var(--navy);padding:0 8px}
+.service-picker p{color:#475569;margin:0}
+.service-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.service-options label{display:flex;align-items:center;gap:10px;border:1px solid #cbd5e1;border-radius:14px;background:#fff;padding:12px;cursor:pointer;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.service-options label:has(input:checked){border-color:var(--brand-blue);box-shadow:0 0 0 2px rgba(17,104,173,.16);transform:translateY(-1px)}
+.service-options input{width:auto;accent-color:var(--brand-blue)}
+.service-questions{display:grid;gap:14px}
+.conditional-section{display:grid;gap:12px;border:1px solid #dbe3ef;border-radius:16px;background:#fff;padding:0 18px;max-height:0;opacity:0;overflow:hidden;visibility:hidden;transition:max-height .25s ease,opacity .25s ease,padding .25s ease,visibility .25s ease}
+.conditional-section.active{max-height:1600px;opacity:1;visibility:visible;padding:18px}
+.conditional-section legend,.checkbox-group legend{font-weight:800;color:var(--navy);padding:0 8px}
+.checkbox-group{border:1px solid #dbe3ef;border-radius:14px;padding:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;background:#f8fafc}
+.checkbox-group label,.yes-no-grid label{display:grid;gap:6px;color:var(--navy);font-weight:700}
+.checkbox-group input{width:auto;accent-color:var(--brand-blue)}
+.yes-no-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+@media(max-width:560px){.service-options{grid-template-columns:1fr}.conditional-section.active{max-height:2600px}.uploaded-photos li{align-items:flex-start;flex-direction:column}}

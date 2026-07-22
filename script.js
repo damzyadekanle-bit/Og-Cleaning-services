@@ -17,10 +17,58 @@ if (testimonialText) {
 const quoteForm = document.getElementById('quote-form');
 const formStatus = document.getElementById('form-status');
 const uploadButton = document.getElementById('upload-photos');
+const serviceInputs = document.querySelectorAll('input[name="services[]"]');
+const conditionalSections = document.querySelectorAll('.conditional-section');
+const progressPercent = document.getElementById('progress-percent');
+const progressBar = document.getElementById('progress-bar');
 const uploadedPhotosList = document.getElementById('uploaded-photos');
 const photoUrlFields = document.getElementById('photo-url-fields');
 const uploadedPhotos = [];
 const maxPhotoUploads = 5;
+
+const getSelectedServiceKeys = () => new Set(
+  Array.from(serviceInputs)
+    .filter((input) => input.checked)
+    .map((input) => input.dataset.service)
+);
+
+const setSectionEnabled = (section, isEnabled) => {
+  section.classList.toggle('active', isEnabled);
+  section.querySelectorAll('input, select, textarea').forEach((field) => {
+    field.disabled = !isEnabled;
+  });
+};
+
+const updateConditionalSections = () => {
+  const selectedServices = getSelectedServiceKeys();
+
+  conditionalSections.forEach((section) => {
+    const sectionServices = section.dataset.services.split(' ');
+    setSectionEnabled(section, sectionServices.some((service) => selectedServices.has(service)));
+  });
+};
+
+const updateProgress = () => {
+  if (!quoteForm || !progressPercent || !progressBar) return;
+
+  const requiredFields = Array.from(quoteForm.querySelectorAll('[required]')).filter((field) => !field.disabled);
+  const completedRequiredFields = requiredFields.filter((field) => {
+    if (field.type === 'checkbox') return field.checked;
+    return field.value.trim() !== '';
+  });
+  const hasSelectedService = Array.from(serviceInputs).some((input) => input.checked);
+  const totalSteps = requiredFields.length + 1;
+  const completedSteps = completedRequiredFields.length + (hasSelectedService ? 1 : 0);
+  const percent = totalSteps ? Math.round((completedSteps / totalSteps) * 100) : 0;
+
+  progressPercent.textContent = `${percent}%`;
+  progressBar.style.width = `${percent}%`;
+};
+
+const refreshFormState = () => {
+  updateConditionalSections();
+  updateProgress();
+};
 
 const showFormStatus = (message, type) => {
   if (!formStatus) return;
@@ -81,6 +129,17 @@ const addUploadedPhoto = (uploadInfo) => {
   renderUploadedPhotos();
 };
 
+refreshFormState();
+
+serviceInputs.forEach((input) => {
+  input.addEventListener('change', refreshFormState);
+});
+
+if (quoteForm) {
+  quoteForm.addEventListener('input', updateProgress);
+  quoteForm.addEventListener('change', updateProgress);
+}
+
 if (uploadedPhotosList) {
   uploadedPhotosList.addEventListener('click', (event) => {
     const removeButton = event.target.closest('button[data-photo-index]');
@@ -129,6 +188,12 @@ if (quoteForm) {
   quoteForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    if (!Array.from(serviceInputs).some((input) => input.checked)) {
+      showFormStatus('Please select at least one cleaning service before submitting your request.', 'error');
+      serviceInputs[0]?.focus();
+      return;
+    }
+
     if (!quoteForm.checkValidity()) {
       quoteForm.reportValidity();
       return;
@@ -155,6 +220,7 @@ if (quoteForm) {
       }
 
       quoteForm.reset();
+      refreshFormState();
       uploadedPhotos.splice(0, uploadedPhotos.length);
       renderUploadedPhotos();
       showFormStatus('Thank you! Your quote request has been received. A member of the Chuko Cleaning Services team will contact you soon.', 'success');
