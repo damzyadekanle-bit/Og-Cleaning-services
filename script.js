@@ -243,3 +243,31 @@ if (quoteForm) {
     }
   });
 }
+
+const revealElements = document.querySelectorAll('.reveal-section');
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14 });
+
+  revealElements.forEach((element) => revealObserver.observe(element));
+} else {
+  revealElements.forEach((element) => element.classList.add('in-view'));
+}
+
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach((item) => {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    faqItems.forEach((otherItem) => {
+      if (otherItem !== item) otherItem.open = false;
+    });
+  });
+});
