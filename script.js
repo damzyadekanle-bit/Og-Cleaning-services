@@ -33,7 +33,18 @@ const getSelectedServiceKeys = () => new Set(
 );
 
 const setSectionEnabled = (section, isEnabled) => {
-  section.classList.toggle('active', isEnabled);
+  window.clearTimeout(Number(section.dataset.hideTimer));
+
+  if (isEnabled) {
+    section.hidden = false;
+    window.requestAnimationFrame(() => section.classList.add('active'));
+  } else {
+    section.classList.remove('active');
+    section.dataset.hideTimer = window.setTimeout(() => {
+      section.hidden = true;
+    }, 260);
+  }
+
   section.querySelectorAll('input, select, textarea').forEach((field) => {
     field.disabled = !isEnabled;
   });

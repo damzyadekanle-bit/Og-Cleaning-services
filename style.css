@@ -111,3 +111,4 @@ html{scroll-padding-top:0}
 .checkbox-group input{width:auto;accent-color:var(--brand-blue)}
 .yes-no-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
 @media(max-width:560px){.service-options{grid-template-columns:1fr}.conditional-section.active{max-height:2600px}.uploaded-photos li{align-items:flex-start;flex-direction:column}}
+.conditional-section[hidden]{display:none}
