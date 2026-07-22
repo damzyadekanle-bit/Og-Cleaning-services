@@ -52,10 +52,18 @@ const renderUploadedPhotos = () => {
 
     const hiddenField = document.createElement('input');
     hiddenField.type = 'hidden';
-    hiddenField.name = 'photo_urls[]';
+    hiddenField.name = `Photo ${index + 1} URL`;
     hiddenField.value = photo.url;
     photoUrlFields.appendChild(hiddenField);
   });
+
+  if (uploadedPhotos.length) {
+    const allPhotoLinks = document.createElement('textarea');
+    allPhotoLinks.name = 'All Uploaded Photo Links';
+    allPhotoLinks.hidden = true;
+    allPhotoLinks.value = uploadedPhotos.map((photo) => photo.url).join('\n');
+    photoUrlFields.appendChild(allPhotoLinks);
+  }
 
   if (uploadButton) {
     uploadButton.disabled = uploadedPhotos.length >= maxPhotoUploads;
