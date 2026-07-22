@@ -52,6 +52,16 @@ a{color:inherit}
 .address-group legend{font-weight:700;padding:0 8px;color:var(--navy)}
 .form-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
 .form-note{color:#475569;font-size:.95rem;margin-top:-4px;background:#eff6ff;border-left:4px solid var(--brand-blue);padding:12px;border-radius:10px}
+.upload-panel{display:grid;gap:12px;background:#f8fafc;border:1px solid #dbe3ef;border-radius:16px;padding:18px}
+.upload-panel h3{font-size:1.05rem;color:var(--navy);margin:0}
+.upload-panel h3 span{font-weight:400;color:#64748b}
+.upload-panel p{color:#475569;margin:0}
+.upload-btn{justify-self:start;background:#020617;color:#fff;border-radius:999px}
+.uploaded-photos{display:grid;gap:8px;list-style:none;margin:0;padding:0}
+.uploaded-photos li{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid #dbe3ef;border-radius:12px;padding:10px 12px}
+.uploaded-photos a{color:var(--brand-blue);font-weight:700;overflow-wrap:anywhere}
+.uploaded-photos button{border:0;border-radius:999px;background:#fee2e2;color:#991b1b;font:inherit;font-weight:700;padding:7px 10px;cursor:pointer}
+.uploaded-photos button:hover,.uploaded-photos button:focus-visible{background:#fecaca}
 .form-status{display:none;border-radius:14px;padding:16px;font-weight:700;line-height:1.5}
 .form-status.success{display:block;background:#ecfdf3;color:#05603a;border:1px solid #86efac}
 .form-status.error{display:block;background:#fff1f2;color:#9f1239;border:1px solid #fda4af}

@@ -115,7 +115,15 @@
       </fieldset>
       <label for="message">Cleaning Details</label>
       <textarea id="message" name="message" placeholder="Tell us about your cleaning needs" rows="5"></textarea>
-      <p class="form-note">You can share photos of the space after we contact you about your quote request.</p>
+      <div class="upload-panel">
+        <div>
+          <h3>Photos <span>(optional)</span></h3>
+          <p>Upload up to 5 photos to help us understand the space.</p>
+        </div>
+        <button id="upload-photos" type="button" class="btn upload-btn">Upload Photos</button>
+        <ul id="uploaded-photos" class="uploaded-photos" aria-live="polite"></ul>
+        <div id="photo-url-fields"></div>
+      </div>
       <input class="honeypot" name="_gotcha" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="hidden" name="_subject" value="New Chuko Cleaning Services quote request">
       <button type="submit" class="btn gold">Submit Request</button>
@@ -132,6 +140,7 @@
 <a class="floating-call" href="tel:6196793390" aria-label="Call Chuko Cleaning Services">Call</a>
 <a class="floating-sms" href="sms:6196793390" aria-label="Text Chuko Cleaning Services">SMS</a>
 
+<script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
