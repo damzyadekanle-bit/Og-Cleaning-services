@@ -16,7 +16,7 @@ a{color:inherit}
 .header{position:fixed;width:100%;background:linear-gradient(90deg,rgba(7,20,38,.97),rgba(15,23,42,.94));padding:12px 0;z-index:1000;box-shadow:0 8px 24px rgba(0,0,0,.18);border-bottom:3px solid rgba(17,104,173,.45)}
 .nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;gap:24px}
 .logo{color:#fff;font-weight:700;font-size:1.4rem;text-decoration:none;display:flex;align-items:center;gap:12px;min-width:0}
-.logo-mark{width:clamp(44px,8vw,58px);height:clamp(44px,8vw,58px);object-fit:contain;flex:0 0 auto;border-radius:50%;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.22)}
+.logo-mark{width:clamp(56px,10vw,74px);height:clamp(56px,10vw,74px);object-fit:contain;flex:0 0 auto;border-radius:50%;background:#020617;box-shadow:0 8px 20px rgba(0,0,0,.22)}
 .logo-text{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:6px;line-height:1.05;letter-spacing:.02em}
 .logo-text strong{font-size:clamp(1.05rem,3vw,1.45rem)}
 .logo-text em{color:var(--brand-blue-light);font-style:normal;font-size:clamp(.9rem,2.3vw,1.1rem);text-shadow:0 0 18px rgba(29,139,224,.25)}
@@ -61,7 +61,7 @@ html{scroll-padding-top:0}
 .header{position:static;padding:14px 0}
 .nav{align-items:flex-start;gap:14px;flex-direction:column}
 .logo{width:100%}
-.logo-text{max-width:calc(100% - 70px)}
+.logo-text{max-width:calc(100% - 88px)}
 .nav-links{display:flex;flex-wrap:wrap;gap:12px}
 .hero{min-height:auto;padding-top:80px}
 .floating-call,.floating-sms{right:12px}
