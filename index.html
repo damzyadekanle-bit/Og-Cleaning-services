@@ -8,13 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon-20260722.svg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="header">
   <nav class="nav" aria-label="Primary navigation">
-    <a class="logo" href="#top" aria-label="Chuko Cleaning Services home">CHUKO <span>Cleaning Services</span></a>
+    <a class="logo" href="#top" aria-label="Chuko Cleaning Services home">
+      <img src="assets/chuko-logo-20260722.svg" alt="" class="logo-mark" width="72" height="72">
+      <span class="logo-text"><strong>CHUKO</strong> <em>Cleaning Services</em></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -64,39 +68,41 @@
   <section id="quote" class="section dark">
     <h2>Request a Free Quote</h2>
     <p class="section-intro">Tell us what you need cleaned and we will follow up with availability and pricing.</p>
-    <form class="quote-form" action="mailto:chukocleaning@gmail.com" method="post" enctype="multipart/form-data">
-      <label for="name">Full Name</label>
+    <form class="quote-form" action="https://formspree.io/f/mrenalyw" method="POST" novalidate>
+      <div id="form-status" class="form-status" aria-live="polite" role="status"></div>
+      <p class="required-note"><span aria-hidden="true">*</span> Required fields</p>
+      <label for="name">Full Name <span aria-hidden="true">*</span></label>
       <input id="name" name="name" type="text" placeholder="Full Name" autocomplete="name" required>
       <label for="company">Company Name <span>(optional)</span></label>
       <input id="company" name="company" type="text" placeholder="Company Name" autocomplete="organization">
-      <label for="phone">Phone Number</label>
-      <input id="phone" name="phone" type="tel" placeholder="Phone Number" autocomplete="tel" required>
-      <label for="email">Email Address</label>
-      <input id="email" name="email" type="email" placeholder="Email Address" autocomplete="email" required>
+      <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+      <input id="phone" name="phone" type="tel" placeholder="(619) 555-0123" autocomplete="tel" pattern="[0-9()+.\-\s]{7,}" required>
+      <label for="email">Email Address <span aria-hidden="true">*</span></label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
       <fieldset class="address-group">
         <legend>Service Address</legend>
-        <label for="street">Street Address</label>
+        <label for="street">Street Address <span aria-hidden="true">*</span></label>
         <input id="street" name="street" type="text" placeholder="Street address" autocomplete="address-line1" required>
-        <label for="unit">Unit, Apartment, Suite, etc. <span>(optional)</span></label>
-        <input id="unit" name="unit" type="text" placeholder="Unit, apartment, suite, etc." autocomplete="address-line2">
+        <label for="unit">Apartment, Unit, or Suite <span>(optional)</span></label>
+        <input id="unit" name="unit" type="text" placeholder="Apartment, unit, suite, etc." autocomplete="address-line2">
         <div class="form-row">
           <div>
-            <label for="city">City</label>
+            <label for="city">City <span aria-hidden="true">*</span></label>
             <input id="city" name="city" type="text" placeholder="City" autocomplete="address-level2" required>
           </div>
           <div>
-            <label for="state">State</label>
+            <label for="state">State <span aria-hidden="true">*</span></label>
             <select id="state" name="state" autocomplete="address-level1" required>
               <option value="CA">California</option>
             </select>
           </div>
           <div>
-            <label for="zip">ZIP Code</label>
-            <input id="zip" name="zip" type="text" placeholder="ZIP Code" inputmode="numeric" autocomplete="postal-code" required>
+            <label for="zip">ZIP Code <span aria-hidden="true">*</span></label>
+            <input id="zip" name="zip" type="text" placeholder="92101" inputmode="numeric" autocomplete="postal-code" pattern="\d{5}" maxlength="5" required>
           </div>
         </div>
       </fieldset>
-      <label for="service">Service Needed</label>
+      <label for="service">Service Needed <span aria-hidden="true">*</span></label>
       <select id="service" name="service" required>
         <option value="Residential Cleaning">Residential Cleaning</option>
         <option value="Commercial Cleaning">Commercial Cleaning</option>
@@ -107,9 +113,10 @@
       </select>
       <label for="message">Cleaning Details</label>
       <textarea id="message" name="message" placeholder="Tell us about your cleaning needs" rows="5"></textarea>
-      <label for="photos">Upload Photos <span>(optional)</span></label>
-      <input id="photos" name="photos" type="file" accept="image/*" multiple>
-      <p class="form-note">Attach photos of the space if they help us estimate the cleaning scope.</p>
+      <p class="form-note">You can share photos of the space after we contact you about your quote request.</p>
+      <label class="honeypot" for="quote-website">Website</label>
+      <input class="honeypot" id="quote-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="New Chuko Cleaning Services quote request">
       <button type="submit" class="btn gold">Submit Request</button>
     </form>
   </section>
