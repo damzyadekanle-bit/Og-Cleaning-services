@@ -8,13 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="assets/favicon-20260722.svg">
+<link rel="stylesheet" href="style.css?v=hero-20260722">
 </head>
 <body>
 
 <header class="header">
   <nav class="nav" aria-label="Primary navigation">
-    <a class="logo" href="#top" aria-label="Chuko Cleaning Services home">CHUKO <span>Cleaning Services</span></a>
+    <a class="logo" href="#top" aria-label="Chuko Cleaning Services home">
+      <img src="assets/chuko-logo-20260722.svg" alt="" class="logo-mark" width="72" height="72">
+      <span class="logo-text"><strong>CHUKO</strong> <em>Cleaning Services</em></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -28,91 +32,251 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-content">
       <p class="eyebrow">San Diego Professional Cleaning Experts</p>
-      <h1 id="hero-title">Premium Residential & Commercial Cleaning Services</h1>
-      <p>Reliable, affordable, and detail-oriented cleaning services throughout San Diego.</p>
-      <div class="hero-buttons">
-        <a href="#quote" class="btn gold">Get Free Quote</a>
-        <a href="tel:6196793390" class="btn outline">Call (619) 679-3390</a>
+      <h1 id="hero-title">A Cleaner Home or Workplace Starts With Chuko</h1>
+      <p class="hero-copy">Dependable residential, commercial, deep, move-in, Airbnb, and post-construction cleaning tailored to your space and schedule.</p>
+      <div class="hero-buttons" aria-label="Primary calls to action">
+        <a href="#quote" class="btn gold">Get a Free Quote</a>
+        <a href="#services" class="btn outline">Explore Our Services</a>
+      </div>
+      <div class="hero-badges" aria-label="Why customers choose Chuko Cleaning Services">
+        <span><span aria-hidden="true">🏠</span> Family-Owned</span>
+        <span><span aria-hidden="true">✅</span> Reliable Service</span>
+        <span><span aria-hidden="true">📅</span> Flexible Scheduling</span>
+        <span><span aria-hidden="true">⭐</span> Satisfaction Focused</span>
       </div>
     </div>
   </section>
 
-  <section id="about" class="section">
+  <section id="why-choose" class="section reveal-section">
+    <p class="eyebrow">Why Choose Us</p>
+    <h2>Why Choose Chuko Cleaning Services</h2>
+    <div class="feature-grid">
+      <article class="feature-card reveal-section"><span class="feature-icon" aria-hidden="true">🏠</span><h3>Family-Owned Business</h3><p>Friendly service with local pride. We treat every property with care and respect.</p></article>
+      <article class="feature-card reveal-section"><span class="feature-icon" aria-hidden="true">✅</span><h3>Reliable & Professional</h3><p>Dependable arrivals and clear communication. You can count on us to follow through.</p></article>
+      <article class="feature-card reveal-section"><span class="feature-icon" aria-hidden="true">✨</span><h3>Attention to Detail</h3><p>We focus on the small touches. Your space is cleaned with consistency and care.</p></article>
+      <article class="feature-card reveal-section"><span class="feature-icon" aria-hidden="true">📅</span><h3>Flexible Scheduling</h3><p>Choose timing that fits your routine. We work around homes, offices, and turnovers.</p></article>
+      <article class="feature-card reveal-section"><span class="feature-icon" aria-hidden="true">🌿</span><h3>Eco-Friendly Products</h3><p>Eco-conscious product options are available. Tell us your preferences when requesting a quote.</p></article>
+      <article class="feature-card reveal-section"><span class="feature-icon" aria-hidden="true">⭐</span><h3>Customer Satisfaction</h3><p>We aim for a smooth experience from quote to finish. Your satisfaction matters to our team.</p></article>
+    </div>
+  </section>
+
+  <section id="services" class="section dark reveal-section">
+    <p class="eyebrow">What We Clean</p>
+    <h2>Our Cleaning Services</h2>
+    <div class="service-card-grid">
+      <article class="service-card reveal-section">
+        <span class="service-icon" aria-hidden="true">🏡</span>
+        <h3>Residential Cleaning</h3>
+        <p>Keep your home fresh, comfortable, and guest-ready with routine or one-time cleaning. We focus on the details that make everyday living easier.</p>
+        <a class="btn service-btn" href="#quote">Get a Free Quote</a>
+      </article>
+      <article class="service-card reveal-section">
+        <span class="service-icon" aria-hidden="true">✨</span>
+        <h3>Deep Cleaning</h3>
+        <p>Ideal for built-up dust, grime, and areas that need extra attention. Deep cleaning targets kitchens, bathrooms, baseboards, appliances, and more.</p>
+        <a class="btn service-btn" href="#quote">Get a Free Quote</a>
+      </article>
+      <article class="service-card reveal-section">
+        <span class="service-icon" aria-hidden="true">📦</span>
+        <h3>Move-In Cleaning</h3>
+        <p>Start fresh before settling into a new space. We help prepare kitchens, bathrooms, cabinets, floors, and key living areas before move-in day.</p>
+        <a class="btn service-btn" href="#quote">Get a Free Quote</a>
+      </article>
+      <article class="service-card reveal-section">
+        <span class="service-icon" aria-hidden="true">🚚</span>
+        <h3>Move-Out Cleaning</h3>
+        <p>Leave the property clean for landlords, buyers, or the next tenant. This service is great for final walkthroughs and turnover preparation.</p>
+        <a class="btn service-btn" href="#quote">Get a Free Quote</a>
+      </article>
+      <article class="service-card reveal-section">
+        <span class="service-icon" aria-hidden="true">🏢</span>
+        <h3>Commercial Cleaning</h3>
+        <p>Support a healthier, more professional workplace with dependable office and business cleaning. We can work around your schedule and access needs.</p>
+        <a class="btn service-btn" href="#quote">Get a Free Quote</a>
+      </article>
+      <article class="service-card reveal-section">
+        <span class="service-icon" aria-hidden="true">🛎️</span>
+        <h3>Airbnb Turnovers</h3>
+        <p>Prepare short-term rentals between guests with fast, detail-focused turnover cleaning. Laundry, restocking, and damage reporting can be discussed.</p>
+        <a class="btn service-btn" href="#quote">Get a Free Quote</a>
+      </article>
+      <article class="service-card reveal-section">
+        <span class="service-icon" aria-hidden="true">🧰</span>
+        <h3>Post-Construction Cleaning</h3>
+        <p>Remove dust, debris, residue, and construction mess after renovation or new builds. We help make finished spaces look polished and ready to use.</p>
+        <a class="btn service-btn" href="#quote">Get a Free Quote</a>
+      </article>
+    </div>
+    <div class="custom-service-cta reveal-section">
+      <p>Every property is unique, and every cleaning plan should be too. If you don't see exactly what you need, contact us for a customized cleaning solution tailored to your home or business.</p>
+      <a class="btn gold" href="#quote">Request a Custom Quote</a>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section reveal-section">
+    <p class="eyebrow">Simple Process</p>
+    <h2>How It Works</h2>
+    <div class="steps" aria-label="Three step quote process">
+      <article class="step-card reveal-section"><span class="step-number">1</span><h3>Request Your Free Quote</h3><p>Share the service type, property details, and any photos that help us estimate.</p></article>
+      <article class="step-card reveal-section"><span class="step-number">2</span><h3>Choose Your Preferred Schedule</h3><p>We follow up with availability and help choose a convenient cleaning time.</p></article>
+      <article class="step-card reveal-section"><span class="step-number">3</span><h3>Enjoy a Professionally Clean Space</h3><p>Our team arrives prepared and completes the cleaning with attention to detail.</p></article>
+    </div>
+  </section>
+
+  <section id="about" class="section dark reveal-section">
     <h2>About Us</h2>
     <p>We are a family-owned cleaning company dedicated to providing reliable, affordable, and detail-oriented cleaning services throughout San Diego County.</p>
   </section>
 
-  <section id="services" class="section dark">
-    <h2>Our Services</h2>
-    <div class="grid">
-      <div class="card">Residential Cleaning</div>
-      <div class="card">Commercial Cleaning</div>
-      <div class="card">Deep Cleaning</div>
-      <div class="card">Move-In / Move-Out Cleaning</div>
-      <div class="card">Airbnb Cleaning</div>
-      <div class="card">Post-Construction Cleaning</div>
+  <section id="service-areas" class="section reveal-section">
+    <p class="eyebrow">Areas Served</p>
+    <h2>Service Areas</h2>
+    <p class="area-intro">Proudly serving homes, businesses, rentals, and construction projects across San Diego County.</p>
+    <div class="area-chips" aria-label="Service areas">
+      <span>San Diego</span><span>Chula Vista</span><span>La Mesa</span><span>El Cajon</span><span>National City</span><span>Lemon Grove</span><span>Spring Valley</span><span>Coronado</span><span>Mission Valley</span><span>North Park</span><span>Point Loma</span><span>San Diego County</span>
     </div>
   </section>
 
-  <section id="testimonials" class="section">
+  <section id="testimonials" class="section dark reveal-section">
     <h2>What Clients Say</h2>
     <div class="testimonial-box" aria-live="polite">
       <p id="testimonial-text">"Outstanding service. Professional and dependable!"</p>
     </div>
   </section>
 
+  <section class="cta-banner reveal-section" aria-labelledby="cta-title">
+    <div>
+      <h2 id="cta-title">Ready for a Cleaner Home or Workplace?</h2>
+      <p>Tell us what you need cleaned and get a free estimate from the Chuko Cleaning Services team.</p>
+    </div>
+    <a class="btn gold" href="#quote">Get My Free Quote</a>
+  </section>
   <section id="quote" class="section dark">
     <h2>Request a Free Quote</h2>
     <p class="section-intro">Tell us what you need cleaned and we will follow up with availability and pricing.</p>
-    <form class="quote-form" action="mailto:chukocleaning@gmail.com" method="post" enctype="multipart/form-data">
-      <label for="name">Full Name</label>
-      <input id="name" name="name" type="text" placeholder="Full Name" autocomplete="name" required>
-      <label for="company">Company Name <span>(optional)</span></label>
-      <input id="company" name="company" type="text" placeholder="Company Name" autocomplete="organization">
-      <label for="phone">Phone Number</label>
-      <input id="phone" name="phone" type="tel" placeholder="Phone Number" autocomplete="tel" required>
-      <label for="email">Email Address</label>
-      <input id="email" name="email" type="email" placeholder="Email Address" autocomplete="email" required>
+    <form id="quote-form" class="quote-form" action="https://formspree.io/f/mrenalyw" method="POST">
+      <div id="form-status" class="form-status" aria-live="polite" role="status"></div>
+      <div class="form-progress" aria-label="Quote form completion">
+        <div class="progress-meta"><span>Quote progress</span><span id="progress-percent">0%</span></div>
+        <div class="progress-track"><span id="progress-bar"></span></div>
+      </div>
+      <p class="required-note"><span aria-hidden="true">*</span> Required fields</p>
+
+      <fieldset class="form-section">
+        <legend>Contact Information</legend>
+        <label for="name">Full Name <span aria-hidden="true">*</span></label>
+        <input id="name" name="name" type="text" placeholder="Full Name" autocomplete="name" required>
+        <label for="company">Company Name <span>(optional)</span></label>
+        <input id="company" name="company" type="text" placeholder="Company Name" autocomplete="organization">
+        <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+        <input id="phone" name="phone" type="tel" placeholder="(619) 555-0123" autocomplete="tel" pattern="[0-9()+.\-\s]{7,}" required>
+        <label for="email">Email Address <span aria-hidden="true">*</span></label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+      </fieldset>
+
       <fieldset class="address-group">
         <legend>Service Address</legend>
-        <label for="street">Street Address</label>
+        <label for="street">Street Address <span aria-hidden="true">*</span></label>
         <input id="street" name="street" type="text" placeholder="Street address" autocomplete="address-line1" required>
-        <label for="unit">Unit, Apartment, Suite, etc. <span>(optional)</span></label>
-        <input id="unit" name="unit" type="text" placeholder="Unit, apartment, suite, etc." autocomplete="address-line2">
+        <label for="unit">Apartment, Unit, or Suite <span>(optional)</span></label>
+        <input id="unit" name="unit" type="text" placeholder="Apartment, unit, suite, etc." autocomplete="address-line2">
         <div class="form-row">
-          <div>
-            <label for="city">City</label>
-            <input id="city" name="city" type="text" placeholder="City" autocomplete="address-level2" required>
-          </div>
-          <div>
-            <label for="state">State</label>
-            <select id="state" name="state" autocomplete="address-level1" required>
-              <option value="CA">California</option>
-            </select>
-          </div>
-          <div>
-            <label for="zip">ZIP Code</label>
-            <input id="zip" name="zip" type="text" placeholder="ZIP Code" inputmode="numeric" autocomplete="postal-code" required>
-          </div>
+          <div><label for="city">City <span aria-hidden="true">*</span></label><input id="city" name="city" type="text" placeholder="City" autocomplete="address-level2" required></div>
+          <div><label for="state">State <span aria-hidden="true">*</span></label><select id="state" name="state" autocomplete="address-level1" required><option value="CA">California</option></select></div>
+          <div><label for="zip">ZIP Code <span aria-hidden="true">*</span></label><input id="zip" name="zip" type="text" placeholder="92101" inputmode="numeric" autocomplete="postal-code" pattern="\d{5}" maxlength="5" required></div>
         </div>
       </fieldset>
-      <label for="service">Service Needed</label>
-      <select id="service" name="service" required>
-        <option value="Residential Cleaning">Residential Cleaning</option>
-        <option value="Commercial Cleaning">Commercial Cleaning</option>
-        <option value="Deep Cleaning">Deep Cleaning</option>
-        <option value="Move-In / Move-Out Cleaning">Move-In / Move-Out Cleaning</option>
-        <option value="Airbnb Cleaning">Airbnb Cleaning</option>
-        <option value="Post-Construction Cleaning">Post-Construction Cleaning</option>
-      </select>
+
+      <fieldset class="form-section">
+        <legend>Scheduling</legend>
+        <div class="form-row"><div><label for="preferred-date">Preferred Cleaning Date</label><input id="preferred-date" name="preferred_cleaning_date" type="date"></div><div><label for="preferred-time">Preferred Time</label><input id="preferred-time" name="preferred_time" type="text" placeholder="Morning, afternoon, specific time"></div></div>
+      </fieldset>
+
+      <fieldset class="service-picker" aria-describedby="service-help">
+        <legend>Service Needed <span aria-hidden="true">*</span></legend>
+        <p id="service-help">Select one or more services. We will only show questions that apply.</p>
+        <div class="service-options">
+          <label><input type="checkbox" name="services[]" value="Residential Cleaning" data-service="residential"> <span>Residential Cleaning</span></label>
+          <label><input type="checkbox" name="services[]" value="Commercial Cleaning" data-service="commercial"> <span>Commercial Cleaning</span></label>
+          <label><input type="checkbox" name="services[]" value="Deep Cleaning" data-service="deep"> <span>Deep Cleaning</span></label>
+          <label><input type="checkbox" name="services[]" value="Move-In Cleaning" data-service="move"> <span>Move-In Cleaning</span></label>
+          <label><input type="checkbox" name="services[]" value="Move-Out Cleaning" data-service="move"> <span>Move-Out Cleaning</span></label>
+          <label><input type="checkbox" name="services[]" value="Airbnb Cleaning" data-service="airbnb"> <span>Airbnb Cleaning</span></label>
+          <label><input type="checkbox" name="services[]" value="Post-Construction Cleaning" data-service="postconstruction"> <span>Post-Construction Cleaning</span></label>
+        </div>
+      </fieldset>
+
+      <div id="service-questions" class="service-questions" aria-live="polite">
+        <fieldset class="conditional-section" hidden data-services="residential">
+          <legend>Residential Cleaning Details</legend>
+          <div class="form-row"><div><label for="property-type">Property Type</label><select id="property-type" name="property_type"><option value="">Select one</option><option>House</option><option>Apartment</option><option>Condo</option><option>Townhome</option></select></div><div><label for="property-size">Property Size</label><input id="property-size" name="property_size" type="text" placeholder="Approx. sq ft"></div></div>
+          <div class="form-row"><div><label for="bedrooms">Bedrooms</label><input id="bedrooms" name="bedrooms" type="number" min="0" inputmode="numeric"></div><div><label for="bathrooms">Bathrooms</label><input id="bathrooms" name="bathrooms" type="number" min="0" step="0.5" inputmode="decimal"></div><div><label for="floors">Number of Floors</label><input id="floors" name="floors" type="number" min="1" inputmode="numeric"></div></div>
+          <div class="form-row"><div><label for="pets">Pets</label><select id="pets" name="pets"><option value="">Select one</option><option>No pets</option><option>Dog(s)</option><option>Cat(s)</option><option>Other pets</option></select></div><div><label for="residential-frequency">Cleaning Frequency</label><select id="residential-frequency" name="residential_frequency"><option value="">Select one</option><option>One-time</option><option>Weekly</option><option>Bi-weekly</option><option>Monthly</option></select></div></div>
+          <label for="property-condition">Property Condition</label><textarea id="property-condition" name="property_condition" rows="3" placeholder="Light, average, heavy buildup, etc."></textarea>
+          <fieldset class="checkbox-group"><legend>Add-on Services</legend><label><input type="checkbox" name="add_ons[]" value="Inside Oven"> Inside Oven</label><label><input type="checkbox" name="add_ons[]" value="Inside Fridge"> Inside Fridge</label><label><input type="checkbox" name="add_ons[]" value="Interior Windows"> Interior Windows</label><label><input type="checkbox" name="add_ons[]" value="Laundry"> Laundry</label></fieldset>
+        </fieldset>
+
+        <fieldset class="conditional-section" hidden data-services="commercial">
+          <legend>Commercial Cleaning Details</legend>
+          <div class="form-row"><div><label for="business-type">Business Type</label><input id="business-type" name="business_type" type="text"></div><div><label for="office-size">Office Size</label><input id="office-size" name="office_size" type="text" placeholder="Approx. sq ft"></div></div>
+          <div class="form-row"><div><label for="employees">Number of Employees</label><input id="employees" name="employees" type="number" min="0"></div><div><label for="restrooms">Number of Restrooms</label><input id="restrooms" name="restrooms" type="number" min="0"></div><div><label for="offices">Number of Offices</label><input id="offices" name="offices" type="number" min="0"></div></div>
+          <div class="form-row"><div><label for="commercial-frequency">Cleaning Frequency</label><select id="commercial-frequency" name="commercial_frequency"><option value="">Select one</option><option>One-time</option><option>Daily</option><option>Weekly</option><option>Bi-weekly</option><option>Monthly</option></select></div><div><label for="cleaning-time">Preferred Cleaning Time</label><input id="cleaning-time" name="preferred_cleaning_time" type="text" placeholder="After hours, mornings, etc."></div></div>
+          <label for="access-instructions">Special Access Instructions</label><textarea id="access-instructions" name="special_access_instructions" rows="3"></textarea>
+        </fieldset>
+
+        <fieldset class="conditional-section" hidden data-services="deep">
+          <legend>Deep Cleaning Details</legend>
+          <fieldset class="checkbox-group"><legend>Areas needing extra attention</legend><label><input type="checkbox" name="extra_attention[]" value="Kitchen"> Kitchen</label><label><input type="checkbox" name="extra_attention[]" value="Bathrooms"> Bathrooms</label><label><input type="checkbox" name="extra_attention[]" value="Baseboards"> Baseboards</label><label><input type="checkbox" name="extra_attention[]" value="Windows"> Windows</label><label><input type="checkbox" name="extra_attention[]" value="Cabinets"> Cabinets</label><label><input type="checkbox" name="extra_attention[]" value="Appliances"> Appliances</label><label><input type="checkbox" name="extra_attention[]" value="Garage"> Garage</label><label><input type="checkbox" name="extra_attention[]" value="Walls"> Walls</label><label><input type="checkbox" name="extra_attention[]" value="Ceiling Fans"> Ceiling Fans</label><label><input type="checkbox" name="extra_attention[]" value="Entire Property"> Entire Property</label></fieldset>
+          <label for="cleaned-six-months">Professionally cleaned in the last six months?</label><select id="cleaned-six-months" name="professionally_cleaned_last_six_months"><option value="">Select one</option><option>Yes</option><option>No</option></select>
+        </fieldset>
+
+        <fieldset class="conditional-section" hidden data-services="move">
+          <legend>Move-In / Move-Out Cleaning Details</legend>
+          <div class="yes-no-grid"><label>Is the property empty?<select name="property_empty"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Utilities connected?<select name="utilities_connected"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Inside appliance cleaning?<select name="inside_appliance_cleaning"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Inside cabinet cleaning?<select name="inside_cabinet_cleaning"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Garage cleaning?<select name="garage_cleaning"><option value="">Select</option><option>Yes</option><option>No</option></select></label></div>
+          <div class="form-row"><div><label for="inspection-date">Final Inspection Date</label><input id="inspection-date" name="final_inspection_date" type="date"></div><div><label for="agent-involved">Real Estate Agent Involved? <span>(optional)</span></label><input id="agent-involved" name="real_estate_agent_involved" type="text"></div></div>
+        </fieldset>
+
+        <fieldset class="conditional-section" hidden data-services="airbnb">
+          <legend>Airbnb Cleaning Details</legend>
+          <div class="form-row"><div><label for="airbnb-bedrooms">Number of Bedrooms</label><input id="airbnb-bedrooms" name="airbnb_bedrooms" type="number" min="0"></div><div><label for="airbnb-bathrooms">Number of Bathrooms</label><input id="airbnb-bathrooms" name="airbnb_bathrooms" type="number" min="0" step="0.5"></div><div><label for="turnovers">Average Monthly Turnovers</label><input id="turnovers" name="monthly_turnovers" type="number" min="0"></div></div>
+          <div class="yes-no-grid"><label>Laundry required?<select name="laundry_required"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Linen replacement?<select name="linen_replacement"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Restock guest supplies?<select name="restock_guest_supplies"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Damage reporting required?<select name="damage_reporting_required"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Same-day turnover?<select name="same_day_turnover"><option value="">Select</option><option>Yes</option><option>No</option></select></label></div>
+        </fieldset>
+
+        <fieldset class="conditional-section" hidden data-services="postconstruction">
+          <legend>Post-Construction Cleaning Details</legend>
+          <div class="form-row"><div><label for="construction-type">New construction or renovation?</label><select id="construction-type" name="construction_type"><option value="">Select one</option><option>New construction</option><option>Renovation</option></select></div><div><label for="construction-square-footage">Approximate Square Footage</label><input id="construction-square-footage" name="construction_square_footage" type="text"></div></div>
+          <div class="yes-no-grid"><label>Construction completed?<select name="construction_completed"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Heavy dust?<select name="heavy_dust"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Paint residue?<select name="paint_residue"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Window sticker removal?<select name="window_sticker_removal"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Debris removal?<select name="debris_removal"><option value="">Select</option><option>Yes</option><option>No</option></select></label><label>Floors installed?<select name="floors_installed"><option value="">Select</option><option>Yes</option><option>No</option></select></label></div>
+        </fieldset>
+      </div>
+
       <label for="message">Cleaning Details</label>
       <textarea id="message" name="message" placeholder="Tell us about your cleaning needs" rows="5"></textarea>
-      <label for="photos">Upload Photos <span>(optional)</span></label>
-      <input id="photos" name="photos" type="file" accept="image/*" multiple>
-      <p class="form-note">Attach photos of the space if they help us estimate the cleaning scope.</p>
+      <div class="upload-panel">
+        <div><h3>Photos <span>(optional)</span></h3><p>Upload up to 5 photos to help us understand the space.</p></div>
+        <button id="upload-photos" type="button" class="btn upload-btn">Upload Photos</button>
+        <ul id="uploaded-photos" class="uploaded-photos" aria-live="polite"></ul>
+        <div id="photo-url-fields"></div>
+      </div>
+      <input class="honeypot" name="_gotcha" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="_subject" value="New Chuko Cleaning Services quote request">
       <button type="submit" class="btn gold">Submit Request</button>
     </form>
   </section>
+
+
+  <section id="faq" class="section reveal-section">
+    <p class="eyebrow">Questions</p>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item"><summary>How do I request a quote?</summary><p>Complete the quote form with your contact information, service details, preferred timing, and photos if available.</p></details>
+      <details class="faq-item"><summary>Do you provide both residential and commercial cleaning?</summary><p>Yes. Chuko Cleaning Services supports homes, offices, Airbnb turnovers, move-in/move-out cleanings, deep cleaning, and post-construction cleaning.</p></details>
+      <details class="faq-item"><summary>Can I choose more than one service?</summary><p>Yes. Select all services that apply and the form will show only the questions related to your selections.</p></details>
+      <details class="faq-item"><summary>Can I upload photos with my request?</summary><p>Yes. Use the photo upload section in the quote form to share images that help us understand the cleaning scope.</p></details>
+      <details class="faq-item"><summary>Do I need to be home during cleaning?</summary><p>Not always. Share access instructions in the form and we will coordinate details before your appointment.</p></details>
+      <details class="faq-item"><summary>How soon will someone contact me?</summary><p>After your request is received, a member of the Chuko Cleaning Services team will follow up as soon as possible.</p></details>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
@@ -124,6 +288,7 @@
 <a class="floating-call" href="tel:6196793390" aria-label="Call Chuko Cleaning Services">Call</a>
 <a class="floating-sms" href="sms:6196793390" aria-label="Text Chuko Cleaning Services">SMS</a>
 
-<script src="script.js"></script>
+<script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
+<script src="script.js?v=hero-20260722"></script>
 </body>
 </html>
