@@ -152,3 +152,4 @@ html{scroll-padding-top:0}
 .custom-service-cta{max-width:850px;margin:36px auto 0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:28px;text-align:center;box-shadow:0 14px 34px rgba(0,0,0,.14)}
 .custom-service-cta p{margin:0 auto 18px;color:#e5e7eb;max-width:760px}
 @media(max-width:520px){.service-card{padding:22px}.service-card-grid{grid-template-columns:1fr}.custom-service-cta{padding:22px}}
+.hero .hero-badges{display:none!important}

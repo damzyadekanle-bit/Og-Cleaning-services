@@ -271,3 +271,5 @@ faqItems.forEach((item) => {
     });
   });
 });
+
+document.querySelectorAll('.hero .hero-badges').forEach((badgeRow) => badgeRow.remove());
