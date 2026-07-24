@@ -273,3 +273,38 @@ faqItems.forEach((item) => {
 });
 
 document.querySelectorAll('.hero .hero-badges').forEach((badgeRow) => badgeRow.remove());
+
+const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryLightbox = document.getElementById('gallery-lightbox');
+const lightboxImage = galleryLightbox?.querySelector('img');
+const lightboxCaption = galleryLightbox?.querySelector('p');
+const lightboxClose = galleryLightbox?.querySelector('.lightbox-close');
+let lastGalleryTrigger = null;
+
+const closeLightbox = () => {
+  if (!galleryLightbox) return;
+  galleryLightbox.hidden = true;
+  document.body.style.overflow = '';
+  lastGalleryTrigger?.focus();
+};
+
+galleryItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    if (!galleryLightbox || !lightboxImage || !lightboxCaption) return;
+    lastGalleryTrigger = item;
+    lightboxImage.src = item.dataset.full;
+    lightboxImage.alt = item.querySelector('img')?.alt || `${item.dataset.category} cleaning gallery image`;
+    lightboxCaption.textContent = item.dataset.category;
+    galleryLightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lightboxClose?.focus();
+  });
+});
+
+lightboxClose?.addEventListener('click', closeLightbox);
+galleryLightbox?.addEventListener('click', (event) => {
+  if (event.target === galleryLightbox) closeLightbox();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && galleryLightbox && !galleryLightbox.hidden) closeLightbox();
+});
