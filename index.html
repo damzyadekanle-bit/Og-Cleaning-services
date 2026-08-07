@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="assets/favicon-20260722.svg">
-<link rel="stylesheet" href="style.css?v=icons-20260806">
+<link rel="stylesheet" href="style.css?v=gallery-20260807">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true">
@@ -153,14 +153,27 @@
   <section id="gallery" class="section reveal-section">
     <p class="eyebrow">Our Work</p>
     <h2>Our Work Gallery</h2>
-    <div class="gallery-grid">
-      <button class="gallery-item" type="button" data-category="Residential" data-full="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=75" alt="Bright residential living room after cleaning"><span>Residential</span></button>
-      <button class="gallery-item" type="button" data-category="Commercial" data-full="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&q=75" alt="Clean modern commercial workspace"><span>Commercial</span></button>
-      <button class="gallery-item" type="button" data-category="Kitchens" data-full="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=75" alt="Clean kitchen countertop and cabinets"><span>Kitchens</span></button>
-      <button class="gallery-item" type="button" data-category="Bathrooms" data-full="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=75" alt="Clean bathroom vanity and mirror"><span>Bathrooms</span></button>
-      <button class="gallery-item" type="button" data-category="Offices" data-full="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=600&q=75" alt="Organized clean office desks"><span>Offices</span></button>
-      <button class="gallery-item" type="button" data-category="Move-Out" data-full="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=600&q=75" alt="Empty clean room ready for move out"><span>Move-Out</span></button>
-      <button class="gallery-item" type="button" data-category="Airbnb" data-full="https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&fit=crop&w=600&q=75" alt="Guest-ready bedroom for short term rental"><span>Airbnb</span></button>
+    <p class="gallery-intro">Explore examples of clean, refreshed spaces. Select a category or open any image for a closer look.</p>
+    <div class="gallery-filters" role="group" aria-label="Filter gallery by service">
+      <button class="gallery-filter active" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="gallery-filter" type="button" data-filter="residential" aria-pressed="false">Residential</button>
+      <button class="gallery-filter" type="button" data-filter="commercial" aria-pressed="false">Commercial</button>
+      <button class="gallery-filter" type="button" data-filter="deep-cleaning" aria-pressed="false">Deep Cleaning</button>
+      <button class="gallery-filter" type="button" data-filter="move" aria-pressed="false">Move-In / Move-Out</button>
+      <button class="gallery-filter" type="button" data-filter="airbnb" aria-pressed="false">Airbnb</button>
+      <button class="gallery-filter" type="button" data-filter="post-construction" aria-pressed="false">Post-Construction</button>
+    </div>
+    <p class="sr-only" id="gallery-filter-status" aria-live="polite">Showing all gallery images.</p>
+    <div class="gallery-grid" aria-live="polite">
+      <button class="gallery-item gallery-item-wide" type="button" data-category="residential" data-category-label="Residential" data-title="Refreshed Living Space" data-description="A bright, carefully prepared living room ready for everyday comfort." data-full="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Bright residential living room after cleaning" loading="lazy" decoding="async"><span class="gallery-overlay"><span class="gallery-category">Residential</span><strong>Refreshed Living Space</strong><span>A bright, carefully prepared room.</span></span></button>
+      <button class="gallery-item gallery-item-tall" type="button" data-category="commercial" data-category-label="Commercial" data-title="Professional Workspace" data-description="An organized office environment prepared for a productive workday." data-full="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Clean modern commercial workspace" loading="lazy" decoding="async"><span class="gallery-overlay"><span class="gallery-category">Commercial</span><strong>Professional Workspace</strong><span>Organized and ready for business.</span></span></button>
+      <button class="gallery-item" type="button" data-category="deep-cleaning" data-category-label="Deep Cleaning" data-title="Detailed Kitchen Care" data-description="Detailed attention across counters, cabinets, fixtures, and high-use surfaces." data-full="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Clean kitchen countertop and cabinets" loading="lazy" decoding="async"><span class="gallery-overlay"><span class="gallery-category">Deep Cleaning</span><strong>Detailed Kitchen Care</strong><span>Attention to high-use surfaces.</span></span></button>
+      <button class="gallery-item" type="button" data-category="deep-cleaning" data-category-label="Deep Cleaning" data-title="Polished Bathroom" data-description="A refreshed bathroom with clean fixtures, vanity surfaces, and glass." data-full="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Clean bathroom vanity and mirror" loading="lazy" decoding="async"><span class="gallery-overlay"><span class="gallery-category">Deep Cleaning</span><strong>Polished Bathroom</strong><span>Fresh fixtures, vanity, and glass.</span></span></button>
+      <button class="gallery-item gallery-item-wide" type="button" data-category="commercial" data-category-label="Commercial" data-title="Ready-to-Work Office" data-description="A clean, uncluttered office prepared for employees and visitors." data-full="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Organized clean office desks" loading="lazy" decoding="async"><span class="gallery-overlay"><span class="gallery-category">Commercial</span><strong>Ready-to-Work Office</strong><span>Prepared for teams and visitors.</span></span></button>
+      <button class="gallery-item" type="button" data-category="move" data-category-label="Move-In / Move-Out" data-title="Fresh Start" data-description="An empty room cleaned and prepared for a smooth property transition." data-full="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Empty clean room ready for move in or move out" loading="lazy" decoding="async"><span class="gallery-overlay"><span class="gallery-category">Move-In / Move-Out</span><strong>Fresh Start</strong><span>Prepared for a smooth transition.</span></span></button>
+      <button class="gallery-item gallery-item-tall" type="button" data-category="airbnb" data-category-label="Airbnb" data-title="Guest-Ready Bedroom" data-description="A welcoming bedroom reset and presented for the next arriving guest." data-full="https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Guest-ready bedroom for a short-term rental" loading="lazy" decoding="async"><span class="gallery-overlay"><span class="gallery-category">Airbnb</span><strong>Guest-Ready Bedroom</strong><span>Reset for the next arrival.</span></span></button>
+      <button class="gallery-item" type="button" data-category="residential" data-category-label="Residential" data-title="Comfortable Home Interior" data-description="A tidy, inviting home interior with refreshed everyday surfaces." data-full="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Tidy and inviting residential home interior" loading="lazy" decoding="async"><span class="gallery-overlay"><span class="gallery-category">Residential</span><strong>Comfortable Home Interior</strong><span>Refreshed everyday surfaces.</span></span></button>
+      <button class="gallery-item gallery-item-wide" type="button" data-category="post-construction" data-category-label="Post-Construction" data-title="Finished Renovation" data-description="A newly finished interior cleared of surface dust and ready for its final presentation." data-full="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Finished modern interior after construction cleanup" loading="lazy" decoding="async"><span class="gallery-overlay"><span class="gallery-category">Post-Construction</span><strong>Finished Renovation</strong><span>Ready for final presentation.</span></span></button>
     </div>
   </section>
 
@@ -326,10 +339,19 @@
   </div>
 </section>
 
-<div class="lightbox" id="gallery-lightbox" hidden>
+<div class="lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-describedby="lightbox-description" hidden>
   <button class="lightbox-close" type="button" aria-label="Close gallery preview">×</button>
-  <img src="" alt="">
-  <p></p>
+  <button class="lightbox-nav lightbox-previous" type="button" aria-label="View previous image">‹</button>
+  <figure class="lightbox-content">
+    <img src="" alt="">
+    <figcaption>
+      <span class="lightbox-category"></span>
+      <h3 id="lightbox-title"></h3>
+      <p id="lightbox-description"></p>
+      <span class="lightbox-count" aria-live="polite"></span>
+    </figcaption>
+  </figure>
+  <button class="lightbox-nav lightbox-next" type="button" aria-label="View next image">›</button>
 </div>
 
 <footer class="footer">
@@ -342,6 +364,6 @@
 <a class="floating-sms" href="sms:6196793390" aria-label="Text Chuko Cleaning Services">SMS</a>
 
 <script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
-<script src="script.js?v=trust-20260724"></script>
+<script src="script.js?v=gallery-20260807"></script>
 </body>
 </html>

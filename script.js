@@ -274,12 +274,44 @@ faqItems.forEach((item) => {
 
 document.querySelectorAll('.hero .hero-badges').forEach((badgeRow) => badgeRow.remove());
 
-const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+const galleryFilters = document.querySelectorAll('.gallery-filter');
+const galleryFilterStatus = document.getElementById('gallery-filter-status');
 const galleryLightbox = document.getElementById('gallery-lightbox');
 const lightboxImage = galleryLightbox?.querySelector('img');
-const lightboxCaption = galleryLightbox?.querySelector('p');
+const lightboxCategory = galleryLightbox?.querySelector('.lightbox-category');
+const lightboxTitle = galleryLightbox?.querySelector('#lightbox-title');
+const lightboxDescription = galleryLightbox?.querySelector('#lightbox-description');
+const lightboxCount = galleryLightbox?.querySelector('.lightbox-count');
 const lightboxClose = galleryLightbox?.querySelector('.lightbox-close');
+const lightboxPrevious = galleryLightbox?.querySelector('.lightbox-previous');
+const lightboxNext = galleryLightbox?.querySelector('.lightbox-next');
 let lastGalleryTrigger = null;
+let visibleGalleryItems = galleryItems;
+let currentGalleryIndex = 0;
+let touchStartX = 0;
+
+const showGalleryImage = (index) => {
+  if (!galleryLightbox || !lightboxImage || !visibleGalleryItems.length) return;
+  currentGalleryIndex = (index + visibleGalleryItems.length) % visibleGalleryItems.length;
+  const item = visibleGalleryItems[currentGalleryIndex];
+  lightboxImage.src = item.dataset.full;
+  lightboxImage.alt = item.querySelector('img')?.alt || `${item.dataset.categoryLabel} cleaning gallery image`;
+  if (lightboxCategory) lightboxCategory.textContent = item.dataset.categoryLabel;
+  if (lightboxTitle) lightboxTitle.textContent = item.dataset.title;
+  if (lightboxDescription) lightboxDescription.textContent = item.dataset.description;
+  if (lightboxCount) lightboxCount.textContent = `${currentGalleryIndex + 1} / ${visibleGalleryItems.length}`;
+};
+
+const openLightbox = (item) => {
+  if (!galleryLightbox) return;
+  lastGalleryTrigger = item;
+  currentGalleryIndex = visibleGalleryItems.indexOf(item);
+  showGalleryImage(currentGalleryIndex);
+  galleryLightbox.hidden = false;
+  document.body.style.overflow = 'hidden';
+  lightboxClose?.focus();
+};
 
 const closeLightbox = () => {
   if (!galleryLightbox) return;
@@ -289,22 +321,53 @@ const closeLightbox = () => {
 };
 
 galleryItems.forEach((item) => {
-  item.addEventListener('click', () => {
-    if (!galleryLightbox || !lightboxImage || !lightboxCaption) return;
-    lastGalleryTrigger = item;
-    lightboxImage.src = item.dataset.full;
-    lightboxImage.alt = item.querySelector('img')?.alt || `${item.dataset.category} cleaning gallery image`;
-    lightboxCaption.textContent = item.dataset.category;
-    galleryLightbox.hidden = false;
-    document.body.style.overflow = 'hidden';
-    lightboxClose?.focus();
+  item.addEventListener('click', () => openLightbox(item));
+});
+
+galleryFilters.forEach((button) => {
+  button.addEventListener('click', () => {
+    const selectedFilter = button.dataset.filter;
+    galleryFilters.forEach((filterButton) => {
+      const isActive = filterButton === button;
+      filterButton.classList.toggle('active', isActive);
+      filterButton.setAttribute('aria-pressed', String(isActive));
+    });
+    galleryItems.forEach((item) => {
+      item.hidden = selectedFilter !== 'all' && item.dataset.category !== selectedFilter;
+    });
+    visibleGalleryItems = galleryItems.filter((item) => !item.hidden);
+    if (galleryFilterStatus) {
+      const label = button.textContent.trim();
+      galleryFilterStatus.textContent = `Showing ${visibleGalleryItems.length} ${label === 'All' ? '' : `${label} `}gallery ${visibleGalleryItems.length === 1 ? 'image' : 'images'}.`;
+    }
   });
 });
 
 lightboxClose?.addEventListener('click', closeLightbox);
+lightboxPrevious?.addEventListener('click', () => showGalleryImage(currentGalleryIndex - 1));
+lightboxNext?.addEventListener('click', () => showGalleryImage(currentGalleryIndex + 1));
 galleryLightbox?.addEventListener('click', (event) => {
   if (event.target === galleryLightbox) closeLightbox();
 });
+galleryLightbox?.addEventListener('touchstart', (event) => {
+  touchStartX = event.changedTouches[0].clientX;
+}, { passive: true });
+galleryLightbox?.addEventListener('touchend', (event) => {
+  const distance = event.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(distance) < 50) return;
+  showGalleryImage(currentGalleryIndex + (distance < 0 ? 1 : -1));
+}, { passive: true });
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && galleryLightbox && !galleryLightbox.hidden) closeLightbox();
+  if (!galleryLightbox || galleryLightbox.hidden) return;
+  if (event.key === 'Escape') closeLightbox();
+  if (event.key === 'ArrowLeft') showGalleryImage(currentGalleryIndex - 1);
+  if (event.key === 'ArrowRight') showGalleryImage(currentGalleryIndex + 1);
+  if (event.key === 'Tab') {
+    const controls = [lightboxClose, lightboxPrevious, lightboxNext].filter(Boolean);
+    const nextIndex = controls.indexOf(document.activeElement) + (event.shiftKey ? -1 : 1);
+    if (nextIndex < 0 || nextIndex >= controls.length) {
+      event.preventDefault();
+      controls[event.shiftKey ? controls.length - 1 : 0].focus();
+    }
+  }
 });
