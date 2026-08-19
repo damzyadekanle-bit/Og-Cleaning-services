@@ -75,8 +75,8 @@ a{color:inherit}
 .footer{background:#020617;color:#fff;text-align:center;padding:40px 20px;border-top:4px solid var(--brand-blue)}
 .footer a{text-decoration:none}
 .footer a:hover,.footer a:focus-visible{color:var(--brand-blue-light)}
-.floating-call,.floating-sms{position:fixed;right:20px;padding:12px 18px;border-radius:30px;text-decoration:none;color:#fff;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.25)}
-.floating-call{bottom:90px;background:#1f2937}
+.floating-call,.floating-sms{position:fixed;right:20px;padding:14px 21px;border-radius:30px;text-decoration:none;color:#fff;font-size:1.05rem;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.floating-call{bottom:96px;background:#1f2937}
 .floating-sms{bottom:30px;background:var(--brand-blue);color:#fff}
 @media(max-width:768px){
 html{scroll-padding-top:0}
@@ -86,14 +86,14 @@ html{scroll-padding-top:0}
 .logo{width:100%}
 .logo-text{max-width:calc(100% - 88px)}
 .nav-links{display:flex;flex-wrap:wrap;gap:12px}
-.hero{min-height:auto;padding:86px 16px 64px;text-align:center}.hero-buttons .btn{margin:0}
-.floating-call,.floating-sms{right:12px}
+.hero{min-height:auto;padding:36px 16px 42px;text-align:center}.hero-content{padding:8px 10px}.hero .eyebrow{font-size:.84rem;line-height:1.4;margin-bottom:8px}.hero h1{font-size:clamp(2.1rem,10vw,2.55rem);line-height:1.02;margin-bottom:14px}.hero-copy{font-size:1rem;line-height:1.5}.hero-buttons{gap:8px;margin-top:20px}.hero-buttons .btn{margin:0;padding:11px 17px;font-size:.95rem}.hero-buttons .outline{border-width:1.5px}
+.floating-call,.floating-sms{right:12px;padding:10px 15px;font-size:.95rem}.floating-call{bottom:78px}.floating-sms{bottom:24px}
 }
 @media(max-width:420px){
 .nav{padding:0 16px}
 .logo{gap:10px}
 .nav-links{font-size:.95rem}
-.btn{width:100%;max-width:280px}
+.btn{width:100%;max-width:280px}.hero-buttons .btn{max-width:240px}
 }
 .form-progress{display:grid;gap:8px;background:#f8fafc;border:1px solid #dbe3ef;border-radius:14px;padding:14px}
 .progress-meta{display:flex;justify-content:space-between;gap:12px;color:var(--navy);font-weight:800}
