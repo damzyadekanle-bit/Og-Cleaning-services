@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="assets/favicon-20260722.svg">
-<link rel="stylesheet" href="style.css?v=service-areas-mobile-20260820">
+<link rel="stylesheet" href="style.css?v=navigation-20260820">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true">
@@ -38,11 +38,21 @@
       <img src="assets/chuko-logo-20260722.svg" alt="" class="logo-mark" width="72" height="72">
       <span class="logo-text"><strong>CHUKO</strong> <em>Cleaning Services</em></span>
     </a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="sr-only">Open menu</span>
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#why-choose">Why Us</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#service-areas">Areas</a></li>
+      <li><a href="#gallery">Our Work</a></li>
       <li><a href="#testimonials">Reviews</a></li>
       <li><a href="#quote">Quote</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact-info">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -430,6 +440,6 @@
 <a class="floating-sms" href="sms:6196793390" aria-label="Text Chuko Cleaning Services">SMS</a>
 
 <script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
-<script src="script.js?v=gallery-20260807"></script>
+<script src="script.js?v=navigation-20260820"></script>
 </body>
 </html>
