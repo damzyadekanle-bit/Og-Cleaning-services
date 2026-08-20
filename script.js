@@ -40,9 +40,16 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-window.matchMedia('(min-width: 1051px)').addEventListener('change', (event) => {
+const desktopNavigation = window.matchMedia('(min-width: 1051px)');
+const handleNavigationBreakpoint = (event) => {
   if (event.matches) closeNavigation();
-});
+};
+
+if (desktopNavigation.addEventListener) {
+  desktopNavigation.addEventListener('change', handleNavigationBreakpoint);
+} else {
+  desktopNavigation.addListener(handleNavigationBreakpoint);
+}
 
 if (testimonialText) {
   setInterval(() => {
@@ -311,9 +318,74 @@ faqItems.forEach((item) => {
 
 document.querySelectorAll('.hero .hero-badges').forEach((badgeRow) => badgeRow.remove());
 
-const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-const galleryFilters = document.querySelectorAll('.gallery-filter');
-const galleryFilterStatus = document.getElementById('gallery-filter-status');
+const galleryPhoto = (id, alt, title, description) => ({
+  src: `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=85`,
+  alt,
+  title,
+  description
+});
+
+// Add or replace photos within an album here; each service folder opens its own image set.
+const galleryAlbums = {
+  residential: {
+    label: 'Residential Cleaning',
+    images: [
+      galleryPhoto('photo-1560448204-e02f11c3d0e2', 'Bright residential living room after cleaning', 'Refreshed Living Space', 'A bright living room prepared for comfortable everyday use.'),
+      galleryPhoto('photo-1600566753086-00f18fb6b3ea', 'Tidy residential home interior', 'Comfortable Home Interior', 'Everyday surfaces refreshed throughout an inviting home.'),
+      galleryPhoto('photo-1600585154340-be6161a56a0c', 'Clean contemporary home interior', 'Ready-to-Enjoy Home', 'A polished interior ready for residents and guests.')
+    ]
+  },
+  'deep-cleaning': {
+    label: 'Deep Cleaning',
+    images: [
+      galleryPhoto('photo-1556911220-bff31c812dba', 'Detailed clean kitchen countertop and cabinets', 'Detailed Kitchen Care', 'Careful attention across counters, cabinets, and high-use surfaces.'),
+      galleryPhoto('photo-1584622650111-993a426fbf0a', 'Polished bathroom vanity and mirror', 'Polished Bathroom', 'Fixtures, vanity surfaces, and glass refreshed with detail.'),
+      galleryPhoto('photo-1484154218962-a197022b5858', 'Bright clean kitchen after detailed cleaning', 'Fresh Kitchen Finish', 'A refreshed kitchen with clean lines and polished surfaces.')
+    ]
+  },
+  'move-in': {
+    label: 'Move-In Cleaning',
+    images: [
+      galleryPhoto('photo-1560184897-ae75f418493e', 'Clean empty room prepared for move in', 'A Fresh Start', 'An empty room cleaned and prepared before move-in day.'),
+      galleryPhoto('photo-1522708323590-d24dbb6b0267', 'Clean apartment interior ready for new residents', 'Move-In Ready', 'A welcoming apartment prepared for its next residents.'),
+      galleryPhoto('photo-1600566753190-17f0baa2a6c3', 'Freshly prepared modern home interior', 'Prepared Interior', 'Key living areas refreshed before belongings arrive.')
+    ]
+  },
+  'move-out': {
+    label: 'Move-Out Cleaning',
+    images: [
+      galleryPhoto('photo-1560185008-b033106af5c3', 'Clean room prepared for a property handoff', 'Walkthrough Ready', 'A clean interior prepared for a final walkthrough.'),
+      galleryPhoto('photo-1554995207-c18c203602cb', 'Empty polished apartment interior', 'Clean Property Handoff', 'An uncluttered space refreshed for the next occupant.'),
+      galleryPhoto('photo-1493809842364-78817add7ffb', 'Bright empty living room after move-out cleaning', 'Final Room Reset', 'Living areas cleaned for a smooth property transition.')
+    ]
+  },
+  commercial: {
+    label: 'Commercial Cleaning',
+    images: [
+      galleryPhoto('photo-1497366754035-f200968a6e72', 'Clean modern commercial workspace', 'Professional Workspace', 'An organized office prepared for a productive workday.'),
+      galleryPhoto('photo-1497366811353-6870744d04b2', 'Organized clean office desks', 'Ready-to-Work Office', 'A clean office environment prepared for teams and visitors.'),
+      galleryPhoto('photo-1497366216548-37526070297c', 'Bright polished business office', 'Welcoming Business Interior', 'A professional space refreshed for employees and guests.')
+    ]
+  },
+  airbnb: {
+    label: 'Airbnb Turnovers',
+    images: [
+      galleryPhoto('photo-1564078516393-cf04bd966897', 'Guest-ready short-term rental bedroom', 'Guest-Ready Bedroom', 'A welcoming bedroom reset for the next arriving guest.'),
+      galleryPhoto('photo-1505693416388-ac5ce068fe85', 'Neatly prepared vacation rental bedroom', 'Turnover Complete', 'Fresh presentation and thoughtful details between stays.'),
+      galleryPhoto('photo-1522708323590-d24dbb6b0267', 'Clean short-term rental living space', 'Arrival-Ready Rental', 'A comfortable rental interior prepared for check-in.')
+    ]
+  },
+  'post-construction': {
+    label: 'Post-Construction Cleaning',
+    images: [
+      galleryPhoto('photo-1600607687939-ce8a6c25118c', 'Finished modern interior after construction cleanup', 'Finished Renovation', 'A completed interior cleared of surface dust for final presentation.'),
+      galleryPhoto('photo-1600585154340-be6161a56a0c', 'Polished newly finished home interior', 'New-Build Finish', 'A newly finished space prepared for use after project work.'),
+      galleryPhoto('photo-1600566753190-17f0baa2a6c3', 'Clean modern room following renovation', 'Post-Project Detail', 'Dust and residue addressed across the finished interior.')
+    ]
+  }
+};
+
+const galleryFolders = Array.from(document.querySelectorAll('.gallery-folder'));
 const galleryLightbox = document.getElementById('gallery-lightbox');
 const lightboxImage = galleryLightbox?.querySelector('img');
 const lightboxCategory = galleryLightbox?.querySelector('.lightbox-category');
@@ -324,27 +396,30 @@ const lightboxClose = galleryLightbox?.querySelector('.lightbox-close');
 const lightboxPrevious = galleryLightbox?.querySelector('.lightbox-previous');
 const lightboxNext = galleryLightbox?.querySelector('.lightbox-next');
 let lastGalleryTrigger = null;
-let visibleGalleryItems = galleryItems;
+let activeGalleryImages = [];
+let activeGalleryLabel = '';
 let currentGalleryIndex = 0;
 let touchStartX = 0;
 
 const showGalleryImage = (index) => {
-  if (!galleryLightbox || !lightboxImage || !visibleGalleryItems.length) return;
-  currentGalleryIndex = (index + visibleGalleryItems.length) % visibleGalleryItems.length;
-  const item = visibleGalleryItems[currentGalleryIndex];
-  lightboxImage.src = item.dataset.full;
-  lightboxImage.alt = item.querySelector('img')?.alt || `${item.dataset.categoryLabel} cleaning gallery image`;
-  if (lightboxCategory) lightboxCategory.textContent = item.dataset.categoryLabel;
-  if (lightboxTitle) lightboxTitle.textContent = item.dataset.title;
-  if (lightboxDescription) lightboxDescription.textContent = item.dataset.description;
-  if (lightboxCount) lightboxCount.textContent = `${currentGalleryIndex + 1} / ${visibleGalleryItems.length}`;
+  if (!galleryLightbox || !lightboxImage || !activeGalleryImages.length) return;
+  currentGalleryIndex = (index + activeGalleryImages.length) % activeGalleryImages.length;
+  const image = activeGalleryImages[currentGalleryIndex];
+  lightboxImage.src = image.src;
+  lightboxImage.alt = image.alt;
+  if (lightboxCategory) lightboxCategory.textContent = activeGalleryLabel;
+  if (lightboxTitle) lightboxTitle.textContent = image.title;
+  if (lightboxDescription) lightboxDescription.textContent = image.description;
+  if (lightboxCount) lightboxCount.textContent = `${currentGalleryIndex + 1} / ${activeGalleryImages.length}`;
 };
 
-const openLightbox = (item) => {
-  if (!galleryLightbox) return;
-  lastGalleryTrigger = item;
-  currentGalleryIndex = visibleGalleryItems.indexOf(item);
-  showGalleryImage(currentGalleryIndex);
+const openGalleryFolder = (folder) => {
+  const album = galleryAlbums[folder.dataset.album];
+  if (!galleryLightbox || !album) return;
+  lastGalleryTrigger = folder;
+  activeGalleryImages = album.images;
+  activeGalleryLabel = album.label;
+  showGalleryImage(0);
   galleryLightbox.hidden = false;
   document.body.style.overflow = 'hidden';
   lightboxClose?.focus();
@@ -354,30 +429,12 @@ const closeLightbox = () => {
   if (!galleryLightbox) return;
   galleryLightbox.hidden = true;
   document.body.style.overflow = '';
+  lightboxImage?.removeAttribute('src');
   lastGalleryTrigger?.focus();
 };
 
-galleryItems.forEach((item) => {
-  item.addEventListener('click', () => openLightbox(item));
-});
-
-galleryFilters.forEach((button) => {
-  button.addEventListener('click', () => {
-    const selectedFilter = button.dataset.filter;
-    galleryFilters.forEach((filterButton) => {
-      const isActive = filterButton === button;
-      filterButton.classList.toggle('active', isActive);
-      filterButton.setAttribute('aria-pressed', String(isActive));
-    });
-    galleryItems.forEach((item) => {
-      item.hidden = selectedFilter !== 'all' && item.dataset.category !== selectedFilter;
-    });
-    visibleGalleryItems = galleryItems.filter((item) => !item.hidden);
-    if (galleryFilterStatus) {
-      const label = button.textContent.trim();
-      galleryFilterStatus.textContent = `Showing ${visibleGalleryItems.length} ${label === 'All' ? '' : `${label} `}gallery ${visibleGalleryItems.length === 1 ? 'image' : 'images'}.`;
-    }
-  });
+galleryFolders.forEach((folder) => {
+  folder.addEventListener('click', () => openGalleryFolder(folder));
 });
 
 lightboxClose?.addEventListener('click', closeLightbox);
